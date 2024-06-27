@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 
-import PyQt5.QtWidgets as QtWidgets
-import PyQt5.QtCore as QtCore
-import PyQt5.QtGui as QtGui
+import PyQt6.QtWidgets as QtWidgets
+import PyQt6.QtCore as QtCore
+import PyQt6.QtGui as QtGui
 import xasy2asy as xasy2asy
 import xasyUtils as xasyUtils
 import Widg_editBezier as Web

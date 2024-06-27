@@ -2,9 +2,9 @@
 
 from pyUIClass.window1 import Ui_MainWindow
 
-import PyQt5.QtWidgets as Qw
-import PyQt5.QtGui as Qg
-import PyQt5.QtCore as Qc
+import PyQt6.QtWidgets as Qw
+import PyQt6.QtGui as Qg
+import PyQt6.QtCore as Qc
 import xasyVersion
 
 import numpy as np
@@ -203,7 +203,7 @@ class MainWindow1(Qw.QMainWindow):
         self.panOffset = [0, 0]
 
         # Keyboard can focus outside of textboxes
-        self.setFocusPolicy(Qc.Qt.StrongFocus)
+        self.setFocusPolicy(Qc.Qt.FocusPolicy.StrongFocus)
 
         super().setMouseTracking(True)
         # setMouseTracking(True)
@@ -1121,7 +1121,7 @@ class MainWindow1(Qw.QMainWindow):
         """Inverts the mapping of the key
            Input map is in format 'Action' : 'Key Sequence' """
         for action, key in self.keyMaps.options.items():
-            shortcut = Qw.QShortcut(self)
+            shortcut = Qg.QShortcut(self)
             shortcut.setKey(Qg.QKeySequence(key))
 
             # hate doing this, but python doesn't have explicit way to pass a
@@ -1146,7 +1146,7 @@ class MainWindow1(Qw.QMainWindow):
 
     #We include this function to keep the general program flow consistent
     def closeEvent(self, event):
-        if self.actionClose() == Qw.QMessageBox.Cancel:
+        if self.actionClose() == Qw.QMessageBox.StandardButton.Cancel:
             event.ignore()
 
     def actionNewFile(self):
@@ -1361,7 +1361,7 @@ class MainWindow1(Qw.QMainWindow):
             if self.mainCanvas.isActive():
                 self.mainCanvas.end()
             self.canvSize = self.ui.imgFrame.size()*devicePixelRatio
-            self.ui.imgFrame.setSizePolicy(Qw.QSizePolicy.Ignored, Qw.QSizePolicy.Ignored)
+            self.ui.imgFrame.setSizePolicy(Qw.QSizePolicy.Policy.Ignored, Qw.QSizePolicy.Ignored)
             self.canvasPixmap = Qg.QPixmap(self.canvSize)
             self.canvasPixmap.setDevicePixelRatio(devicePixelRatio)
             self.postCanvasPixmap = Qg.QPixmap(self.canvSize)
@@ -1746,7 +1746,7 @@ class MainWindow1(Qw.QMainWindow):
 
     def createMainCanvas(self):
         self.canvSize = devicePixelRatio*self.ui.imgFrame.size()
-        self.ui.imgFrame.setSizePolicy(Qw.QSizePolicy.Ignored, Qw.QSizePolicy.Ignored)
+        self.ui.imgFrame.setSizePolicy(Qw.QSizePolicy.Policy.Ignored, Qw.QSizePolicy.Ignored)
         factor=0.5/devicePixelRatio;
         x, y = self.canvSize.width()*factor, self.canvSize.height()*factor
 
@@ -1762,9 +1762,8 @@ class MainWindow1(Qw.QMainWindow):
         self.postCanvasPixmap.setDevicePixelRatio(devicePixelRatio)
 
         self.mainCanvas = Qg.QPainter(self.canvasPixmap)
-        self.mainCanvas.setRenderHint(Qg.QPainter.Antialiasing)
-        self.mainCanvas.setRenderHint(Qg.QPainter.SmoothPixmapTransform)
-        self.mainCanvas.setRenderHint(Qg.QPainter.HighQualityAntialiasing)
+        self.mainCanvas.setRenderHint(Qg.QPainter.RenderHint.Antialiasing)
+        self.mainCanvas.setRenderHint(Qg.QPainter.RenderHint.SmoothPixmapTransform)
         self.xasyDrawObj['canvas'] = self.mainCanvas
 
         self.mainTransformation = Qg.QTransform()
@@ -1921,7 +1920,7 @@ class MainWindow1(Qw.QMainWindow):
     def updateScreen(self):
         self.finalPixmap = Qg.QPixmap(self.canvSize)
         self.finalPixmap.setDevicePixelRatio(devicePixelRatio)
-        self.finalPixmap.fill(Qc.Qt.black)
+        self.finalPixmap.fill(Qg.QColorConstants.Svg.black)
         with Qg.QPainter(self.finalPixmap) as finalPainter:
             drawPoint = Qc.QPoint(0, 0)
             finalPainter.drawPixmap(drawPoint, self.canvasPixmap)
@@ -2017,7 +2016,7 @@ class MainWindow1(Qw.QMainWindow):
         preCanvas.setTransform(self.getScrsTransform())
 
         if self.drawAxes:
-            preCanvas.setPen(Qc.Qt.gray)
+            preCanvas.setPen(Qg.QColorConstants.Svg.gray)
             self.makePenCosmetic(preCanvas)
             preCanvas.drawLine(Qc.QLine(-9999, 0, 9999, 0))
             preCanvas.drawLine(Qc.QLine(0, -9999, 0, 9999))
@@ -2069,7 +2068,7 @@ class MainWindow1(Qw.QMainWindow):
             painter.restore()
 
     def postDraw(self):
-        self.postCanvasPixmap.fill(Qc.Qt.transparent)
+        self.postCanvasPixmap.fill(Qg.QColorConstants.Transparent)
         with Qg.QPainter(self.postCanvasPixmap) as postCanvas:
             postCanvas.setRenderHints(self.mainCanvas.renderHints())
             postCanvas.setTransform(self.getScrsTransform())

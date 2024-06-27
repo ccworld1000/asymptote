@@ -3,13 +3,13 @@
  <class>Form</class>
  <widget class="QWidget" name="Form">
   <property name="windowModality">
-   <enum>Qt::NonModal</enum>
+   <enum>Qt::WindowModality::NonModal</enum>
   </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>599</width>
+    <width>709</width>
     <height>35</height>
    </rect>
   </property>
@@ -74,7 +74,7 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset>
+        <iconset resource="../res/icons.qrc">
          <normaloff>:/icons/edit.svg</normaloff>:/icons/edit.svg</iconset>
        </property>
        <property name="flat">
@@ -266,7 +266,7 @@
      <item>
       <spacer name="horizontalSpacer">
        <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+        <enum>Qt::Orientation::Horizontal</enum>
        </property>
        <property name="sizeHint" stdset="0">
         <size>

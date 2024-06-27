@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-import PyQt5.QtWidgets as QtWidgets
-import PyQt5.QtGui as QtGui
-import PyQt5.QtCore as QtCore
+import PyQt6.QtWidgets as QtWidgets
+import PyQt6.QtGui as QtGui
+import PyQt6.QtCore as QtCore
 import numpy as numpy
 import xasy2asy as xasy2asy
 from pyUIClass.custMatTransform import Ui_Dialog

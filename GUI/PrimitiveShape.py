@@ -3,8 +3,8 @@
 import xasy2asy as xasy2asy
 import numpy as numpy
 import math
-import PyQt5.QtCore as QtCore
-import PyQt5.QtGui as QtGui
+import PyQt6.QtCore as QtCore
+import PyQt6.QtGui as QtGui
 
 
 class PrimitiveShape:

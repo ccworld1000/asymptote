@@ -2,8 +2,8 @@
 
 from pyUIClass.widg_editBezier import Ui_Form
 
-import PyQt5.QtWidgets as QtWidgets
-import PyQt5.QtCore as QtCore
+import PyQt6.QtWidgets as QtWidgets
+import PyQt6.QtCore as QtCore
 
 class LockMode:
     noLock = 0

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
 from pyUIClass.widg_addPolyOpt import Ui_Form
-import PyQt5.QtWidgets as QtWidgets
-import PyQt5.QtGui as QtGui
+import PyQt6.QtWidgets as QtWidgets
+import PyQt6.QtGui as QtGui
 
 import sys
 

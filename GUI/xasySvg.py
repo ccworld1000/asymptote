@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-import PyQt5.QtGui as QtGui
-import PyQt5.QtWidgets as QtWidgets
+import PyQt6.QtGui as QtGui
+import PyQt6.QtWidgets as QtWidgets
 import io
 import subprocess
 import sys

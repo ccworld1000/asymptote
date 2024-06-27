@@ -19,8 +19,8 @@ CMAKE ?= cmake
 PERL ?= perl
 PYTHON ?= python3
 BISON ?= bison
-PYRCC ?= pyrcc5
-PYUIC ?= pyuic5
+PYRCC ?= pyrcc6
+PYUIC ?= pyuic6
 
 # Libraries needed to make asymptote.so.
 # We have to remove OpenGL, threading, GC, etc from this.
