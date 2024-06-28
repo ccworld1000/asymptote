@@ -1201,7 +1201,7 @@ class MainWindow1(Qw.QMainWindow):
         for count, path in enumerate(self.openRecent.pathList):
             if count > 8:
                 break
-            action = Qw.QAction(path, self, triggered = lambda state, path = path: self.actionOpen(fileName = path))
+            action = Qg.QAction(path, self, triggered = lambda state, path = path: self.actionOpen(fileName = path))
             self.ui.menuOpenRecent.addAction(action)
         self.ui.menuOpenRecent.addSeparator()
         self.ui.menuOpenRecent.addAction("Clear", self.actionClearRecent)
@@ -1361,7 +1361,7 @@ class MainWindow1(Qw.QMainWindow):
             if self.mainCanvas.isActive():
                 self.mainCanvas.end()
             self.canvSize = self.ui.imgFrame.size()*devicePixelRatio
-            self.ui.imgFrame.setSizePolicy(Qw.QSizePolicy.Policy.Ignored, Qw.QSizePolicy.Ignored)
+            self.ui.imgFrame.setSizePolicy(Qw.QSizePolicy.Policy.Ignored, Qw.QSizePolicy.Policy.Ignored)
             self.canvasPixmap = Qg.QPixmap(self.canvSize)
             self.canvasPixmap.setDevicePixelRatio(devicePixelRatio)
             self.postCanvasPixmap = Qg.QPixmap(self.canvSize)
@@ -1746,7 +1746,7 @@ class MainWindow1(Qw.QMainWindow):
 
     def createMainCanvas(self):
         self.canvSize = devicePixelRatio*self.ui.imgFrame.size()
-        self.ui.imgFrame.setSizePolicy(Qw.QSizePolicy.Policy.Ignored, Qw.QSizePolicy.Ignored)
+        self.ui.imgFrame.setSizePolicy(Qw.QSizePolicy.Policy.Ignored, Qw.QSizePolicy.Policy.Ignored)
         factor=0.5/devicePixelRatio;
         x, y = self.canvSize.width()*factor, self.canvSize.height()*factor
 
